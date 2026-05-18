@@ -9,6 +9,8 @@ services:
       dockerfile: ./docker/php/Dockerfile
     volumes:
       - ./src/:/var/www/html
+    ports:
+      - ${VITE_PORT}:${VITE_PORT}
     environment:
       - DB_CONNECTION=mysql
       - DB_HOST=db
