@@ -28,7 +28,13 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'message' => 'required|string|max:300',
+        ]);
+ 
+        $request->user()->posts()->create($validated);
+ 
+        return redirect(route('posts.index'));
     }
 
     /**
