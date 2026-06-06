@@ -30,6 +30,10 @@
                 </div>
             </div>
             @endforeach
+
+            <div class="container p-6">
+                {{$posts->links()}}
+            </div>
         </div>
     </div>
 </x-app-layout>
