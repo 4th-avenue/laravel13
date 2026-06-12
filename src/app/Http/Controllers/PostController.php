@@ -52,7 +52,9 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        return view('posts.edit', [
+            'post' => $post,
+        ]);
     }
 
     /**
@@ -60,7 +62,13 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $validated = $request->validate([
+            'message' => 'required|string|max:300',
+        ]);
+ 
+        $post->update($validated);
+ 
+        return redirect(route('posts.index'));
     }
 
     /**
