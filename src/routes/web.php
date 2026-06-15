@@ -19,7 +19,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource('posts', PostController::class)
-    ->only(['index', 'store', 'edit', 'update'])
+    ->except(['create', 'show'])
     ->middleware(['auth', 'verified']);
 
 require __DIR__.'/auth.php';
