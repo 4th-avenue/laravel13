@@ -28,6 +28,7 @@
                                 <small class="text-sm text-gray-600"> &middot; {{ __('edited') }}</small>
                             @endunless
                         </div>
+                        @canany(['update', 'delete'], $post)
                         <x-dropdown>
                             <x-slot name="trigger">
                                 <button>
@@ -49,6 +50,7 @@
                                 </form>
                             </x-slot>
                         </x-dropdown>
+                        @endcanany
                     </div>
                     <p class="mt-4 text-lg text-gray-900">{{ $post->message }}</p>
                 </div>
